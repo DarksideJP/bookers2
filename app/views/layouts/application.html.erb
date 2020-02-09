@@ -10,38 +10,46 @@
   </head>
 
   <body>
-    <h4>Bookers</h4>
-    <div id="menu">
-      <ul class="menu-list">
+    <nav class="navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+    <h1>
+      <a class="navbar">Bookers</a>
+    </h1>
+  </div>
+    <div class="collapse navbar-collapse" id="navbarEexample1">
+      <ul class="nav navbar-nav">
       <% if user_signed_in? %>
-      <li class="">
+      <li>
         <%= link_to "Home", user_path(current_user.id) %>
       </li>
-      <li class="">
+      <li>
       <%= link_to "Users", "/users" %>
     </li>
-    <li class="">
+    <li>
       <%= link_to "Books", "/books" %>
     </li>
-    <li class="">
+    <li>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     </li>
     <% else %>
-    <li class="">
+    <li>
       <%= link_to "Home", "/" %>
     </li>
-    <li class="">
+    <li>
       <%= link_to "about", "/homes/about" %>
     </li>
-    <li class="">
+    <li>
       <%= link_to "sign up",new_user_registration_path %>
     </li>
-    <li class="">
+    <li>
       <%= link_to "login", new_user_session_path %>
     </li>
     <% end %>
   </ul>
   </div>
+</div>
+</nav>
 
     <%= yield %>
   </body>
