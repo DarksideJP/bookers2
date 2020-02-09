@@ -4,19 +4,18 @@
     <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<script src="https://kit.fontawesome.com/24745f7779.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-    <h1>
-      <a class="navbar">Bookers</a>
-    </h1>
+      <a class="navbar-brand">Bookers</a>
   </div>
+  <div class="navbar-right">
     <div class="collapse navbar-collapse" id="navbarEexample1">
       <ul class="nav navbar-nav">
       <% if user_signed_in? %>
@@ -48,6 +47,7 @@
     <% end %>
   </ul>
   </div>
+</div>
 </div>
 </nav>
 
