@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def new
@@ -18,6 +19,12 @@ class BooksController < ApplicationController
     else
       render "users/show", notice: "error"
     end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path
   end
 
   def edit
