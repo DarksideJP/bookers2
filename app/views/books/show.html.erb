@@ -15,9 +15,9 @@
 			<h2>New book</h2>
 			<%= form_for(@books) do |f| %>
 			<h4>Title</h4>
-			<%= f.text_field :title %>
+			<%= f.text_field :title, class:"btn-block" %>
 			<h4>Opinion</h4>
-			<%= f.text_area :body %>
+			<%= f.text_area :body, class:"btn-block" %>
 			<%= f.submit "Create Book", class:"btn btn-primary btn-block" %>
 			<% end %>
 		</table>
