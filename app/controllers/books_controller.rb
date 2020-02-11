@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
   def index
+    @books = Book.joins(:user).select("books.*, users.profile_image_id")
+    @user = User.find(current_user.id)
+    @book = Book.new
+
   end
 
   def show

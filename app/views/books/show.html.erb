@@ -1,11 +1,10 @@
-<!-- ここから -->
 <%= notice %>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
 			<table>
 			<h2> User info</h2>
-			<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: "jpeg", fallback:"no_image.jpg" %>
+			<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: "jpeg", fallback:"no_image.jpg" %>
 			<hr>
 			<p>name <%= @book.user.name %></p>
 			<hr>
@@ -24,11 +23,10 @@
 		</table>
 		</div>
 		<div class="col-md-9">
-			<!-- ここまでusers/showと一緒 -->
 			<h2>book detail</h2>
 			<table class="table">
 				<tr>
-					<td class="col-md-2"><%= attachment_image_tag @book.user, :profile_image, :fill,10, 10, format: "jpeg", fallback: "no_image.jpg" %></td>
+					<td class="col-md-2"><%= attachment_image_tag @book.user, :profile_image, :fill,40, 40, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
 					<td class="col-md-2"><%= @book.title %></td>
 					<td class="col-md-2"><%= @book.body %></td>
 					<td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success btn-xs" %></td>
