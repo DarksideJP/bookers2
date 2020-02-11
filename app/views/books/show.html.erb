@@ -29,8 +29,10 @@
 					<td class="col-md-2"><%= attachment_image_tag @book.user, :profile_image, :fill,40, 40, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
 					<td class="col-md-2"><%= @book.title %></td>
 					<td class="col-md-2"><%= @book.body %></td>
+					<% if @book.user == current_user %>
 					<td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success btn-xs" %></td>
 					<td><%= link_to "Destroy", book_path(@book), class:"btn btn-danger btn-xs", method: :delete %></td>
+					<% end %>
 				</tr>
 			</table>
 		</div>

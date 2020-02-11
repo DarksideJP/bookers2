@@ -1,6 +1,16 @@
 <h2>User info</h2>
 
 <%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+<div class="alert alert-danger">
+	<h2><%= @user.errors.count %>error prohibited this obj from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 <span>Name</span>
 <%= f.text_field :name, autofocus: true %>
 <span>Image</span>

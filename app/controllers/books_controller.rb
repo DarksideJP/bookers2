@@ -19,11 +19,12 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @books = Book.all
+    @user = User.find(current_user.id)
     @book.user_id = current_user.id
     if @book.save
       redirect_to book_path(@book.id), notice: "successfully"
     else
-      render "users/show", notice: "error"
+      render "index", notice: "error"
     end
   end
 
