@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     # @books = Book.joins(:user).select("books.*, users.profile_image_id")
     @books = Book.all
@@ -24,7 +26,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id), notice: "successfully"
     else
-      render "index", notice: "error"
+      render "index"
     end
   end
 
@@ -43,9 +45,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+    redirect_to book_path(@book), notice: "successfully"
+  else
+    render "edit", notice: "error"
+  end
   end
 
   private
