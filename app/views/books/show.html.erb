@@ -10,7 +10,7 @@
 			<hr>
 			<p>introduciton <%= @book.user.introduction %></p>
 			<%= link_to edit_user_path(@book.user), class:"btn btn-default btn-block" do %>
-			<i class="fas fa-wrench"></i>
+			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 			<% end %>
 			<h2>New book</h2>
 			<%= form_for(@books) do |f| %>
