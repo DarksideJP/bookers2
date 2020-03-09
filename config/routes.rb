@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root :to => "homes#index"
-  resources :books
+  resources :books do
+  	resource :favorites, only: [:create, :destroy]
+  	resource :book_comments, only: [:create, :destroy]
+  end
   devise_for :users
   resources :users
   get "home/about" => "homes#about"

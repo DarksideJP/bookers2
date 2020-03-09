@@ -6,12 +6,12 @@ class BooksController < ApplicationController
     @books = Book.all
     @user = User.find(current_user.id)
     @book = Book.new
-
   end
 
   def show
     @book = Book.find(params[:id])
     @books = Book.new
+    @book_comment = BookComment.new
   end
 
   def new
@@ -45,7 +45,6 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
     redirect_to book_path(@book), notice: "successfully"
   else

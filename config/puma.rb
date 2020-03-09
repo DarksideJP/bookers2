@@ -50,9 +50,9 @@ if Rails.env.production?
 
 	stdout_redirect(
 
-		file.join(rails_root, 'rog', 'puma.log'),
+		File.join(rails_root, 'rog', 'puma.log'),
 
-		file.join(rails_root, 'log', 'puma-error.log'),
+		File.join(rails_root, 'log', 'puma-error.log'),
 
 		true
 
