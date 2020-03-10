@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   	resource :book_comments, only: [:create, :destroy]
   end
   devise_for :users
-  resources :users
+  resources :users do
+  	resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
   get "home/about" => "homes#about"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

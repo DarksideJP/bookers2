@@ -9,9 +9,24 @@
 					<p>name <%= @book.user.name %></p>
 					<hr>
 					<p>introduciton <%= @book.user.introduction %></p>
+					<p>follows <%= link_to follows_user_path(@book.user.id) do %>
+									<%= @book.user.followings.count %></p>
+						   	   <% end %>
+				<p>followers <%= link_to followers_user_path(@book.user.id) do %>
+								<%= @book.user.followers.count %></p>
+							 <% end %>
+				<% if current_user != @user %>
+					<% if @book.user.followed_by?(current_user) %>
+						<%= link_to "フォロー外す", user_relationships_path(@book.user.id), method: :delete %>
+					<% else %>
+						<%= link_to "フォローする", user_relationships_path(@book.user.id), method: :post %>
+					<% end %>
+				<% end %>
+				<% if current_user == @user %>
 					<%= link_to edit_user_path(@book.user), class:"btn btn-default btn-block" do %>
 						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 					<% end %>
+				<% end %>
 				<h2>New book</h2>
 					<%= form_for(@books) do |f| %>
 						<h4>Title</h4>
