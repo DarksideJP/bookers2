@@ -60,6 +60,6 @@ if Rails.env.production?
 
 	#　デーモン
 
-	deamonize
+	daemonize
 
 end
